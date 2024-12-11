@@ -41,6 +41,10 @@ with col3:
     st.image("iisc_logo.png", width=100)
 
 # Sidebar Section with Modified Input and Output Descriptions
+st.sidebar.markdown(
+    """<h3 style='text-align: center;'>Fault Diagnosis in Rolling Element Bearings</h3>""",
+    unsafe_allow_html=True
+)
 st.sidebar.markdown("""<h4>Dataset Features (Input):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
 - **RMS (Root Mean Square):** Measure of the magnitude of vibration signals.
