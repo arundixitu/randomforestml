@@ -37,7 +37,7 @@ with col2:
     col1, col2, col3 = st.columns([1, 3, 1])  # Adjust column ratios for symmetry
 
 with col1:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\aicte_logo.png", width=100)
+    st.image("aicte_logo.png", width=100)
 with col2:
     st.markdown("""
         <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
@@ -45,7 +45,7 @@ with col2:
         <h3 style='text-align: center;'>Rolling Element Bearing Fault Detection<br>and Classification using Machine Learning</h3>
     """, unsafe_allow_html=True)
 with col3:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\iisc_logo.png", width=100)
+    st.image("iisc_logo.png", width=100)
 
 
     
