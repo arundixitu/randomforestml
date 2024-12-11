@@ -50,6 +50,10 @@ st.sidebar.markdown("""
 - **PP (Peak-to-Peak):** The difference between the maximum and minimum signal amplitudes.
 - **EN (Energy):** The total energy contained in the vibration signal.
 """)
+st.sidebar.markdown("### Download Trained Dataset")
+st.sidebar.markdown("[Download as Excel](https://docs.google.com/spreadsheets/d/15d9dXWdSoltzsxZuj-TGDvTUE9Yjd0aT/edit?usp=drive_link&ouid=114859279630461352273&rtpof=true&sd=true)", unsafe_allow_html=True)
+st.sidebar.markdown("[Download as CSV](https://drive.google.com/file/d/1QYPWs_7bGWXzCNvttIuUZUb8ccBM-t1w/view?usp=sharing)", unsafe_allow_html=True)
+
 st.sidebar.markdown("""<h4>Output Classes (Bearing Conditions):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
 - **HB (Healthy Bearing):** The bearing is operating under normal conditions with no faults.
