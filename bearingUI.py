@@ -34,16 +34,19 @@ with col1:
     st.image("aicte_logo.png", width=100)
 with col2:
     st.markdown("""<h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>""", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 5, 1])  # Adjust column ratios for better centering
+    col1, col2, col3 = st.columns([1, 3, 1])  # Adjust column ratios for symmetry
+
+with col1:
+    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\aicte_logo.png", width=100)
 with col2:
     st.markdown("""
-        <h3 style='text-align: center;'>
-            Centre: Indian Institute of Science (IISc), Bengaluru
-        </h3>
-        <h3 style='text-align: center;'>
-            Rolling Element Bearing Fault Detection and Classification using Machine Learning
-        </h3>
+        <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
+        <h4 style='text-align: center;'>Centre: Indian Institute of Science (IISc), Bengaluru</h4>
+        <h3 style='text-align: center;'>Rolling Element Bearing Fault Detection<br>and Classification using Machine Learning</h3>
     """, unsafe_allow_html=True)
+with col3:
+    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\iisc_logo.png", width=100)
+
 
     
 with col3:
