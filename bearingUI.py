@@ -45,7 +45,7 @@ with col2:
 col1, col2, col3 = st.columns([1, 5, 1])  # Set wider space for the title
 
 with col1:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\aicte_logo.png", width=100)
+    st.image("aicte_logo.png", width=100)
     
 with col2:
     st.markdown("""
@@ -55,7 +55,7 @@ with col2:
     """, unsafe_allow_html=True)
 
 with col3:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\iisc_logo.png", width=100)
+    st.image("iisc_logo.png", width=100)
 
 
 # Sidebar Section with Modified Input and Output Descriptions
