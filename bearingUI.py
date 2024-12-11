@@ -58,6 +58,12 @@ st.sidebar.markdown("### Download/View Trained Dataset")
 st.sidebar.markdown("[Download as Excel](https://docs.google.com/spreadsheets/d/15d9dXWdSoltzsxZuj-TGDvTUE9Yjd0aT/edit?usp=drive_link&ouid=114859279630461352273&rtpof=true&sd=true)", unsafe_allow_html=True)
 st.sidebar.markdown("[Download as CSV](https://drive.google.com/file/d/1QYPWs_7bGWXzCNvttIuUZUb8ccBM-t1w/view?usp=sharing)", unsafe_allow_html=True)
 
+st.sidebar.markdown("### Unseen Dataset Details")
+st.sidebar.markdown("The unseen dataset is used to validate the model's performance on new data, ensuring its reliability and robustness.")
+st.sidebar.markdown("[Download Unseen Dataset (CSV)](https://drive.google.com/file/d/1QRbt_zOj6ZpVJgofNb2hEtUJ-ufphvud/view?usp=drive_link)", unsafe_allow_html=True)
+st.sidebar.markdown("**Accuracy on Unseen Dataset:** 100%")
+
+
 st.sidebar.markdown("""<h4>Output Classes (Bearing Conditions):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
 - **HB (Healthy Bearing):** The bearing is operating under normal conditions with no faults.
