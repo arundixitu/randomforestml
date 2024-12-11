@@ -34,8 +34,12 @@ with col1:
     st.image("aicte_logo.png", width=100)
 with col2:
     st.markdown("""<h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>""", unsafe_allow_html=True)
-    st.markdown("""<h4 style='text-align: center;'>Centre: Indian Institute of Science (IISc), Bengaluru</h4>""", unsafe_allow_html=True)
-    st.markdown("""<h3 style='text-align: center;'>Project Title: Rolling Element Bearing Fault Detection and Classification using Machine Learning</h3>""", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='text-align: center; width: 100%;'>
+        <h3>Centre: Indian Institute of Science (IISc), Bengaluru</h3>
+        <h3>Project Title: Rolling Element Bearing Fault Detection and Classification using Machine Learning</h3>
+    </div>
+""", unsafe_allow_html=True)
     
 with col3:
     st.image("iisc_logo.png", width=100)
