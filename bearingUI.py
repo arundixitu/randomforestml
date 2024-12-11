@@ -29,33 +29,20 @@ def visualize_feature_importance():
 st.set_page_config(page_title="Bearing Fault Detection", layout="wide")
 
 # Header Section
-col1, col2, col3 = st.columns([1, 3, 1])
-with col1:
-    st.image("aicte_logo.png", width=100)
-with col2:
-    st.markdown("""<h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>""", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 3, 1])  # Adjust column ratios for symmetry
+col1, col2, col3 = st.columns([1, 5, 1])  # Adjust column ratios for symmetry
 
 with col1:
-    st.image("aicte_logo.png", width=100)
-with col2:
-    st.markdown("""
-        <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
-        # Adjust column layout to balance logos and title
-col1, col2, col3 = st.columns([1, 5, 1])  # Set wider space for the title
+    st.image("aicte_logo.png", width=100)  # Left logo
 
-with col1:
-    st.image("aicte_logo.png", width=100)
-    
 with col2:
     st.markdown("""
         <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
         <h4 style='text-align: center;'>Centre: Indian Institute of Science (IISc), Bengaluru</h4>
         <h3 style='text-align: center;'>Rolling Element Bearing Fault Detection and Classification using Machine Learning</h3>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)  # Centered text
 
 with col3:
-    st.image("iisc_logo.png", width=100)
+    st.image("iisc_logo.png", width=100)  # Right logo
 
 
 # Sidebar Section with Modified Input and Output Descriptions
