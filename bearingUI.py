@@ -57,7 +57,7 @@ st.sidebar.markdown("""
 - **ORD (Outer Race Defect):** Fault detected in the outer race of the bearing.
 - **RED (Rolling Element Defect):** Fault detected in the rolling elements of the bearing.
 """)
-st.sidebar.markdown("**Model Used:** Random Forest Classifier")
+st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
 st.sidebar.markdown("**Accuracy Achieved:** 87%")
 st.sidebar.markdown("**Developed by:** Arun C Dixit U & Nithin M")
 st.sidebar.markdown("**Contact:** arundixitu@vvce.ac.in | 9900479762")
