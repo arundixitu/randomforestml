@@ -40,20 +40,28 @@ with col2:
 with col3:
     st.image("iisc_logo.png", width=100)
 
-# Description Section
-st.sidebar.markdown("""<h4>Dataset Features:</h4>""", unsafe_allow_html=True)
+# Sidebar Section with Modified Input and Output Descriptions
+st.sidebar.markdown("""<h4>Dataset Features (Input):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
-- **RMS:** Root Mean Square
-- **KU:** Kurtosis
-- **CF:** Crest Factor
-- **IF:** Impulse Factor
-- **PP:** Peak-to-Peak
-- **EN:** Energy
+- **RMS (Root Mean Square):** Measure of the magnitude of vibration signals.
+- **KU (Kurtosis):** Describes the sharpness of the vibration signal peaks.
+- **CF (Crest Factor):** Ratio of the peak amplitude to the RMS value.
+- **IF (Impulse Factor):** Indicates the impulsiveness of the vibration signal.
+- **PP (Peak-to-Peak):** The difference between the maximum and minimum signal amplitudes.
+- **EN (Energy):** The total energy contained in the vibration signal.
 """)
-st.sidebar.markdown("**Model:** Random Forest Classifier")
+st.sidebar.markdown("""<h4>Output Classes (Bearing Conditions):</h4>""", unsafe_allow_html=True)
+st.sidebar.markdown("""
+- **HB (Healthy Bearing):** The bearing is operating under normal conditions with no faults.
+- **IRD (Inner Race Defect):** Fault detected in the inner race of the bearing.
+- **ORD (Outer Race Defect):** Fault detected in the outer race of the bearing.
+- **RED (Rolling Element Defect):** Fault detected in the rolling elements of the bearing.
+""")
+st.sidebar.markdown("**Model Used:** Random Forest Classifier")
 st.sidebar.markdown("**Accuracy Achieved:** 87%")
 st.sidebar.markdown("**Developed by:** Arun C Dixit U & Nithin M")
 st.sidebar.markdown("**Contact:** arundixitu@vvce.ac.in | 9900479762")
+
 
 # Main Layout
 st.write("This application detects faults in bearing systems using a Random Forest model trained on vibration dataset features. Upload a dataset or enter values manually to predict the bearing condition.")
