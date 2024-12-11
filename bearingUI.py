@@ -31,14 +31,14 @@ st.set_page_config(page_title="Bearing Fault Detection", layout="wide")
 # Header Section
 col1, col2, col3 = st.columns([1, 3, 1])
 with col1:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\aicte_logo.png", width=100)
+    st.image("aicte_logo.png", width=100)
 with col2:
     st.markdown("""<h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>""", unsafe_allow_html=True)
     st.markdown("""<h4 style='text-align: center;'>Centre: Indian Institute of Science (IISc), Bengaluru</h4>""", unsafe_allow_html=True)
     st.markdown("""<h3 style='text-align: center;'>Project Title: Machine Learning Application for Bearing Fault Detection</h3>""", unsafe_allow_html=True)
     
 with col3:
-    st.image("C:\\Users\\arund\\Desktop\\Bearing ML Model\\iisc_logo.png", width=100)
+    st.image("iisc_logo.png", width=100)
 
 # Description Section
 st.sidebar.markdown("""<h4>Dataset Features:</h4>""", unsafe_allow_html=True)
