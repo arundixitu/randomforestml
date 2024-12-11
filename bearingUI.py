@@ -78,8 +78,6 @@ st.sidebar.markdown("""
 """)
 st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
 st.sidebar.markdown("**Accuracy Achieved:** 87%")
-st.sidebar.markdown("**Developed by:** Arun C Dixit U & Nithin M")
-st.sidebar.markdown("**Contact:** arundixitu@vvce.ac.in | 9900479762")
 
 
 # Main Layout
@@ -151,6 +149,10 @@ if uploaded_file is not None:
 st.markdown("""<hr style='border: 1px solid gray;'>""", unsafe_allow_html=True)
 st.markdown(
     """<p style='text-align: center;'>Developed as a part of project work for AICTE QIP PG Certificate Program on Machine Learning at IISc, Bengaluru</p>""",
+    unsafe_allow_html=True
+)
+st.markdown(
+    """<p style='text-align: center;'>Developed by: Arun C Dixit U & Nithin M</p>""",
     unsafe_allow_html=True
 )
 st.markdown(
