@@ -153,3 +153,7 @@ st.markdown(
     """<p style='text-align: center;'>Developed as a part of project work for AICTE QIP PG Certificate Program on Machine Learning at IISc, Bengaluru</p>""",
     unsafe_allow_html=True
 )
+st.markdown(
+    """<p style='text-align: center;'>Contact: <a href='mailto:arundixitu@vvce.ac.in'>arundixitu@vvce.ac.in</a> | 9900479762</p>""",
+    unsafe_allow_html=True
+)
