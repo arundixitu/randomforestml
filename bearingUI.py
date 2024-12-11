@@ -6,9 +6,9 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 import matplotlib.pyplot as plt
 
 # Load required files
-rf_model = joblib.load("C:\\Users\\arund\\Desktop\\Bearing ML Model\\random_forest_model.pkl")
-label_encoder = joblib.load("C:\\Users\\arund\\Desktop\\Bearing ML Model\\label_encoder.pkl")
-scaler = joblib.load("C:\\Users\\arund\\Desktop\\Bearing ML Model\\scaler.pkl")
+rf_model = joblib.load("random_forest_model.pkl")
+label_encoder = joblib.load("label_encoder.pkl")
+scaler = joblib.load("scaler.pkl")
 
 def visualize_class_distribution(data):
     class_counts = data['Category'].value_counts()
