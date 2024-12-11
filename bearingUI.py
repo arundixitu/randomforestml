@@ -70,8 +70,10 @@ st.write("This application detects faults in bearing systems using a Random Fore
 st.markdown("""<h4>Upload Your Vibration Dataset (CSV format):</h4>""", unsafe_allow_html=True)
 uploaded_file = st.file_uploader("Drag and drop file here or browse", type=["csv"])
 
+st.markdown("<h4 style='text-align: center;'>OR</h4>", unsafe_allow_html=True)
+
 # Manual Input Section
-st.markdown("**Enter Variable Values:**", unsafe_allow_html=True)
+st.markdown("**Enter Individual Variable Values:**", unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 col4, col5, col6 = st.columns(3)
 with col1:
