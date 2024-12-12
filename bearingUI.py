@@ -89,8 +89,10 @@ st.sidebar.markdown("""
 - **ORD (Outer Race Defect):** Fault detected in the outer race of the bearing.
 - **RED (Rolling Element Defect):** Fault detected in the rolling elements of the bearing.
 """)
+
 st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
 st.sidebar.markdown("**Accuracy Achieved:** 87%")
+
 # Add Links to the Model Trained in Google Colab
 st.sidebar.markdown("### Google Colab ML Model Link")
 st.sidebar.markdown("[View Trained Model in Google Colab](https://colab.research.google.com/drive/1MqN_IIy6Jf4KBmWxBgJ6MWQE5-BKoSPh)")
