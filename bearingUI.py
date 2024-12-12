@@ -45,7 +45,7 @@ with col3:
     st.image("iisc_logo1.jpg", width=100)  # Right logo
 
 with col3:
-    st.image("bearing1.png", width=200)  
+    st.image("bearing1.png", width=300)  
 
 
 # Sidebar Section with Modified Input and Output Descriptions
