@@ -34,6 +34,9 @@ col1, col2, col3 = st.columns([1, 5, 1])  # Adjust column ratios for symmetry
 with col1:
     st.image("aicte_logo.png", width=100)  # Left logo
 
+with col1:
+    st.image("bearing2.png", width=250)  
+
 with col2:
     st.markdown("""
         <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
