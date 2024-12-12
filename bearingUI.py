@@ -98,6 +98,7 @@ st.sidebar.markdown("### Google Colab ML Model Link")
 st.sidebar.markdown("[View Trained Model in Google Colab](https://colab.research.google.com/drive/1MqN_IIy6Jf4KBmWxBgJ6MWQE5-BKoSPh)")
 # Add PDF Link for Google Colab Code
 st.sidebar.markdown("[Download Colab Code (PDF)](https://drive.google.com/file/d/1QZcQVsB0qLENjcQlUk9WbqreNB6WrhmK/view?usp=sharing)")
+st.sidebar.markdown("[Confusion Matrixfrom trained model](https://drive.google.com/file/d/1QiTpUaVFULuEpx0lQ5Buwp-hCxO3mr20/view?usp=drive_link)")
 
 
 # Main Layout
