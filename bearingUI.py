@@ -42,7 +42,7 @@ with col2:
     """, unsafe_allow_html=True)  # Centered text
 
 with col3:
-    st.image("iisc_logo.png", width=100)  # Right logo
+    st.image("iisc_logo1.png", width=100)  # Right logo
 
 
 # Sidebar Section with Modified Input and Output Descriptions
