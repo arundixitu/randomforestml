@@ -57,7 +57,7 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 st.sidebar.markdown("### Flowchart of the ML Analysis")
-st.sidebar.image("flowchart.png", caption="ML Analysis Flowchart", use_column_width=True)
+st.sidebar.image(""[View Flowchart](flowchart.png)", use_column_width=True)
 st.sidebar.markdown("""<h4>Dataset Features (Input):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
 - **RMS (Root Mean Square):** Measure of the magnitude of vibration signals.
