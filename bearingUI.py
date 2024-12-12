@@ -44,6 +44,9 @@ with col2:
 with col3:
     st.image("iisc_logo1.jpg", width=100)  # Right logo
 
+with col3:
+    st.image("bearing1.png", width=120)  
+
 
 # Sidebar Section with Modified Input and Output Descriptions
 st.sidebar.markdown(
