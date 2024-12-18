@@ -10,173 +10,73 @@ rf_model = joblib.load("new_best_random_forest_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 scaler = joblib.load("scaler.pkl")
 
-def visualize_class_distribution(data):
-    class_counts = data['Category'].value_counts()
-    st.subheader("Class Distribution in Uploaded Dataset")
-    st.bar_chart(class_counts)
+# Top 4 features selected during training
+TOP_FEATURES = ['PP', 'RMS', 'KU', 'IF']
 
-def visualize_feature_importance():
-    st.subheader("Feature Importance")
-    feature_importance = best_random_forest.feature_importances_
-    feature_names = ['RMS', 'KU', 'CF', 'IF', 'PP', 'EN']
-    plt.figure(figsize=(8, 6))
-    plt.barh(feature_names, feature_importance, color='teal')
-    plt.xlabel("Importance")
-    plt.title("Feature Importance in Random Forest Model")
-    st.pyplot(plt)
+def preprocess_input(data):
+    """
+    Function to preprocess input data:
+    - Automatically select top 4 features (PP, RMS, KU, IF).
+    - Scale the data using the saved StandardScaler.
+    """
+    selected_data = data[TOP_FEATURES]  # Select top 4 features
+    return scaler.transform(selected_data)  # Scale the data
 
 # Streamlit App Layout
 st.set_page_config(page_title="Bearing Fault Detection", layout="wide")
 
 # Header Section
-col1, col2, col3 = st.columns([1, 5, 1])  # Adjust column ratios for symmetry
-
-with col1:
-    st.image("aicte_logo.png", width=100)  # Left logo
-
-with col1:
-    st.image("bearing2.png", width=250)  
-
-with col2:
-    st.markdown("""
-        <h2 style='text-align: center;'>AICTE QIP PG Certificate Program on Machine Learning</h2>
-        <h4 style='text-align: center;'>Centre: Indian Institute of Science (IISc), Bengaluru</h4>
-        <h3 style='text-align: center;'>Project Title: Rolling Element Bearing Fault Detection and Classification using Machine Learning</h3>
-    """, unsafe_allow_html=True)  # Centered text
-
-with col3:
-    st.image("iisc_logo1.jpg", width=100)  # Right logo
-
-with col3:
-    st.image("bearing1.png", width=300)  
-
-
-# Sidebar Section with Modified Input and Output Descriptions
-st.sidebar.markdown(
-    """<h3 style='text-align: center;'>Fault Diagnosis & Classification in Rolling Element Bearings</h3>""",
-    unsafe_allow_html=True
-)
-st.sidebar.markdown("### Flowchart of the ML Analysis")
-st.sidebar.markdown("[View Flowchart](https://drive.google.com/file/d/1QZDHXltP4DmZjrKYdVFairiUQp6D2Spb/view?usp=sharing)", unsafe_allow_html=True)
-
-# Placeholder for Setup and Input Capturing Details
-st.sidebar.markdown("### Details about the Work")
-st.sidebar.markdown("[About work](https://drive.google.com/file/d/1QgaP9y8C-igJQaKHRVhK-0bE_TftbEXJ/view?usp=drive_link)")  
-
-st.sidebar.markdown("""<h4>Dataset Features (Input):</h4>""", unsafe_allow_html=True)
-st.sidebar.markdown("""
-- **RMS (Root Mean Square):** Measure of the magnitude of vibration signals.
-- **KU (Kurtosis):** Describes the sharpness of the vibration signal peaks.
-- **CF (Crest Factor):** Ratio of the peak amplitude to the RMS value.
-- **IF (Impulse Factor):** Indicates the impulsiveness of the vibration signal.
-- **PP (Peak-to-Peak):** The difference between the maximum and minimum signal amplitudes.
-- **EN (Energy):** The total energy contained in the vibration signal.
-""")
-st.sidebar.markdown("### Download/View Trained Dataset")
-st.sidebar.markdown("[Download as Excel](https://docs.google.com/spreadsheets/d/15d9dXWdSoltzsxZuj-TGDvTUE9Yjd0aT/edit?usp=drive_link&ouid=114859279630461352273&rtpof=true&sd=true)", unsafe_allow_html=True)
-st.sidebar.markdown("[Download as CSV](https://drive.google.com/file/d/1QYPWs_7bGWXzCNvttIuUZUb8ccBM-t1w/view?usp=sharing)", unsafe_allow_html=True)
-
-st.sidebar.markdown("### Unseen Dataset Details")
-st.sidebar.markdown("The unseen dataset is used to validate the model's performance on new data, ensuring its reliability and robustness.")
-st.sidebar.markdown("[Download Unseen Dataset (CSV)](https://drive.google.com/file/d/1QRbt_zOj6ZpVJgofNb2hEtUJ-ufphvud/view?usp=drive_link)", unsafe_allow_html=True)
-st.sidebar.markdown("**Accuracy on Unseen Dataset:** 100%")
-
-
-st.sidebar.markdown("""<h4>Output Classes (Bearing Conditions):</h4>""", unsafe_allow_html=True)
-st.sidebar.markdown("""
-- **HB (Healthy Bearing):** The bearing is operating under normal conditions with no faults.
-- **IRD (Inner Race Defect):** Fault detected in the inner race of the bearing.
-- **ORD (Outer Race Defect):** Fault detected in the outer race of the bearing.
-- **RED (Rolling Element Defect):** Fault detected in the rolling elements of the bearing.
-""")
-
-st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
-st.sidebar.markdown("**Accuracy Achieved:** 87%")
-
-# Add Links to the Model Trained in Google Colab
-st.sidebar.markdown("### Google Colab ML Model Link")
-st.sidebar.markdown("[View Trained Model in Google Colab](https://colab.research.google.com/drive/1MqN_IIy6Jf4KBmWxBgJ6MWQE5-BKoSPh)")
-# Add PDF Link for Google Colab Code
-st.sidebar.markdown("[Download Colab Code (PDF)](https://drive.google.com/file/d/1QZcQVsB0qLENjcQlUk9WbqreNB6WrhmK/view?usp=sharing)")
-st.sidebar.markdown("[Confusion Matrix from trained model](https://drive.google.com/file/d/1QiTpUaVFULuEpx0lQ5Buwp-hCxO3mr20/view?usp=drive_link)")
-
-
-# Main Layout
-st.write("This application detects faults in bearing systems using a Random Forest model trained on vibration dataset features. Upload a dataset or enter values manually to predict the bearing condition.")
-
-# File Upload Section
-st.markdown("""<h4>Upload Your Vibration Dataset (CSV format):</h4>""", unsafe_allow_html=True)
-uploaded_file = st.file_uploader("Drag and drop file here or browse", type=["csv"])
-
-st.markdown("<h4 style='text-align: center;'>OR</h4>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Bearing Fault Detection Using ML</h2>", unsafe_allow_html=True)
 
 # Manual Input Section
 st.markdown("**Enter Individual Variable Values:**", unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
-col4, col5, col6 = st.columns(3)
-with col1:
-    rms = st.number_input("RMS", value=0.0, step=0.1)
-with col2:
-    ku = st.number_input("KU", value=0.0, step=0.1)
-with col3:
-    cf = st.number_input("CF", value=0.0, step=0.1)
-with col4:
-    impulse = st.number_input("IF", value=0.0, step=0.1)
-with col5:
-    pp = st.number_input("PP", value=0.0, step=0.1)
-with col6:
-    energy = st.number_input("EN", value=0.0, step=0.1)
 
-probability_threshold = st.slider("Set Probability Threshold (%)", min_value=0, max_value=100, value=50, step=1)
+with col1:
+    rms = st.number_input("RMS (Root Mean Square)", value=0.0, step=0.1)
+    ku = st.number_input("KU (Kurtosis)", value=0.0, step=0.1)
+
+with col2:
+    cf = st.number_input("CF (Crest Factor)", value=0.0, step=0.1)
+    impulse = st.number_input("IF (Impulse Factor)", value=0.0, step=0.1)
+
+with col3:
+    pp = st.number_input("PP (Peak-to-Peak)", value=0.0, step=0.1)
+    energy = st.number_input("EN (Energy)", value=0.0, step=0.1)
 
 if st.button("Predict for Manual Input"):
-    manual_input = np.array([[rms, ku, cf, impulse, pp, energy]])
-    scaled_input = scaler.transform(manual_input)
-    probabilities = rf_model.predict_proba(scaled_input)[0] * 100
-    predicted_class = rf_model.predict(scaled_input)[0]
-    class_name = label_encoder.inverse_transform([predicted_class])[0]
-    explanations = {
-        "HB": "Healthy Bearing: Normal operation.",
-        "IRD": "Inner Race Defect: Fault in the inner race.",
-        "ORD": "Outer Race Defect: Fault in the outer race.",
-        "RED": "Rolling Element Defect: Fault in rolling elements."
-    }
-    if probabilities.max() >= probability_threshold:
-        st.write(f"### Predicted Class: {class_name} ({probabilities.max():.2f}%)")
-        st.write(f"**Explanation:** {explanations[class_name]}")
-    else:
-        st.write(f"### Prediction Confidence Below Threshold ({probabilities.max():.2f}%)")
+    # Create DataFrame with all 6 features
+    manual_input = pd.DataFrame([[rms, ku, cf, impulse, pp, energy]],
+                                columns=['RMS', 'KU', 'CF', 'IF', 'PP', 'EN'])
+    # Automatically select only the required features
+    scaled_input = preprocess_input(manual_input)
+    prediction = rf_model.predict(scaled_input)
+    predicted_class = label_encoder.inverse_transform(prediction)[0]
+    st.write(f"### Predicted Class: **{predicted_class}**")
 
-# File Processing Section
-if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
+# File Upload Section
+uploaded_file = st.file_uploader("Upload a CSV file with all features (RMS, KU, CF, IF, PP, EN):", type=["csv"])
+
+if uploaded_file:
     try:
-        features = data[['RMS', 'KU', 'CF', 'IF', 'PP', 'EN']]
-        scaled_features = scaler.transform(features)
-        predictions = rf_model.predict(scaled_features)
-        probabilities = rf_model.predict_proba(scaled_features) * 100
-        data['Prediction'] = label_encoder.inverse_transform(predictions)
-        data['Probability (%)'] = probabilities.max(axis=1)
-        st.write("### Prediction Results")
-        st.dataframe(data)
-        st.download_button("Download Results", data.to_csv(index=False), file_name="results.csv", mime="text/csv")
+        # Read uploaded data
+        data = pd.read_csv(uploaded_file)
 
-        visualize_class_distribution(data)
-        visualize_feature_importance()
+        # Automatically select and preprocess only the top 4 features
+        scaled_features = preprocess_input(data)
+
+        # Make predictions
+        predictions = rf_model.predict(scaled_features)
+        data['Prediction'] = label_encoder.inverse_transform(predictions)
+
+        # Display results
+        st.write("### Prediction Results:")
+        st.dataframe(data)
+        st.download_button("Download Results", data.to_csv(index=False), file_name="predictions.csv", mime="text/csv")
+
     except Exception as e:
         st.error(f"Error processing file: {e}")
 
 # Footer Section
-st.markdown("""<hr style='border: 1px solid gray;'>""", unsafe_allow_html=True)
-st.markdown(
-    """<p style='text-align: center;'>Developed as a part of project work for AICTE QIP PG Certificate Program on Machine Learning at IISc, Bengaluru</p>""",
-    unsafe_allow_html=True
-)
-st.markdown(
-    """<p style='text-align: center;'>Developed by: Arun C Dixit U & Nithin M</p>""",
-    unsafe_allow_html=True
-)
-st.markdown(
-    """<p style='text-align: center;'>Contact: <a href='mailto:arundixitu@vvce.ac.in'>arundixitu@vvce.ac.in</a> | 9900479762</p>""",
-    unsafe_allow_html=True
-)
+st.markdown("---")
+st.markdown("<p style='text-align: center;'>Developed for AICTE QIP PG Certificate Program</p>", unsafe_allow_html=True)
