@@ -92,18 +92,19 @@ st.sidebar.markdown("""
 
 st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
 st.sidebar.markdown("**Accuracy Achieved (Before Tuning):** 86%")
-st.sidebar.markdown("**Accuracy Achieved (After Tuning:** 89%")
+st.sidebar.markdown("**Accuracy Achieved (After Tuning):** 89%")
 
 # Add Links to the Model Trained in Google Colab
 st.sidebar.markdown("### Google Colab ML Model Link")
-st.sidebar.markdown("[View Trained Model in Google Colab](https://colab.research.google.com/drive/1MqN_IIy6Jf4KBmWxBgJ6MWQE5-BKoSPh)")
+st.sidebar.markdown("[View Trained Model in Google Colab](https://colab.research.google.com/drive/1FHXFmjm0g7zxN2lMXN0MjVCzLhZIsk0p?usp=sharing)")
 # Add PDF Link for Google Colab Code
-st.sidebar.markdown("[Download Colab Code (PDF)](https://drive.google.com/file/d/1QZcQVsB0qLENjcQlUk9WbqreNB6WrhmK/view?usp=sharing)")
-st.sidebar.markdown("[Confusion Matrix from trained model](https://drive.google.com/file/d/1QiTpUaVFULuEpx0lQ5Buwp-hCxO3mr20/view?usp=drive_link)")
+st.sidebar.markdown("[Download Colab Code (PDF)](https://drive.google.com/file/d/1keeoMw693F7O2MDT8SMr4EIMdtv2hsxL/view?usp=sharing)")
+st.sidebar.markdown("[Confusion Matrix before tuning](https://drive.google.com/file/d/1mZXzgIOaTxg0GLlyaTGyVWWiyNi876bD/view?usp=sharing)")
+st.sidebar.markdown("[Confusion Matrix after tuning](https://drive.google.com/file/d/1_InQwH7M_JxM3jmLT_j5AShlcHj7i-xN/view?usp=sharing)")
 
 
 # Main Layout
-st.write("This application detects faults in bearing systems using a Random Forest model trained on vibration dataset features. Upload a dataset or enter values manually to predict the bearing condition.")
+st.write("This application detects faults in bearing systems using a Hyper Parameter tuned Random Forest model trained on vibration dataset features. Upload a dataset or enter values manually to predict the bearing condition.")
 
 # File Upload Section
 st.markdown("""<h4>Upload Your Vibration Dataset (CSV format):</h4>""", unsafe_allow_html=True)
