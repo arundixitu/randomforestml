@@ -18,7 +18,7 @@ def visualize_class_distribution(data):
 def visualize_feature_importance():
     st.subheader("Feature Importance")
     feature_importance = rf_model.feature_importances_
-    feature_names = ['RMS', 'KU', 'CF', 'IF', 'PP', 'EN']
+    feature_names = ['PP', 'RMS', 'KU', 'IF']
     plt.figure(figsize=(8, 6))
     plt.barh(feature_names, feature_importance, color='teal')
     plt.xlabel("Importance")
