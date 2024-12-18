@@ -130,33 +130,54 @@ with col6:
 probability_threshold = st.slider("Set Probability Threshold (%)", min_value=0, max_value=100, value=50, step=1)
 
 if st.button("Predict for Manual Input"):
-    manual_input = np.array([[rms, ku, cf, impulse, pp, energy]])
-    scaled_input = scaler.transform(manual_input)
-    probabilities = rf_model.predict_proba(scaled_input)[0] * 100
-    predicted_class = rf_model.predict(scaled_input)[0]
-    class_name = label_encoder.inverse_transform([predicted_class])[0]
-    explanations = {
-        "HB": "Healthy Bearing: Normal operation.",
-        "IRD": "Inner Race Defect: Fault in the inner race.",
-        "ORD": "Outer Race Defect: Fault in the outer race.",
-        "RED": "Rolling Element Defect: Fault in rolling elements."
-    }
-    if probabilities.max() >= probability_threshold:
-        st.write(f"### Predicted Class: {class_name} ({probabilities.max():.2f}%)")
-        st.write(f"**Explanation:** {explanations[class_name]}")
-    else:
-        st.write(f"### Prediction Confidence Below Threshold ({probabilities.max():.2f}%)")
+    try:
+        # Create DataFrame with all 6 features
+        manual_input = pd.DataFrame([[rms, ku, cf, impulse, pp, energy]],
+                                    columns=['RMS', 'KU', 'CF', 'IF', 'PP', 'EN'])
+
+        # Automatically select top 4 features
+        manual_input_selected = manual_input[['PP', 'RMS', 'KU', 'IF']]
+        scaled_input = scaler.transform(manual_input_selected)
+
+        # Make predictions
+        probabilities = rf_model.predict_proba(scaled_input)[0] * 100
+        predicted_class = rf_model.predict(scaled_input)[0]
+        class_name = label_encoder.inverse_transform([predicted_class])[0]
+
+        # Display prediction and explanation
+        explanations = {
+            "HB": "Healthy Bearing: Normal operation.",
+            "IRD": "Inner Race Defect: Fault in the inner race.",
+            "ORD": "Outer Race Defect: Fault in the outer race.",
+            "RED": "Rolling Element Defect: Fault in rolling elements."
+        }
+        if probabilities.max() >= probability_threshold:
+            st.write(f"### Predicted Class: {class_name} ({probabilities.max():.2f}%)")
+            st.write(f"**Explanation:** {explanations[class_name]}")
+        else:
+            st.write(f"### Prediction Confidence Below Threshold ({probabilities.max():.2f}%)")
+    except Exception as e:
+        st.error(f"Error processing manual input: {e}")
 
 # File Processing Section
 if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
     try:
-        features = data[['RMS', 'KU', 'CF', 'IF', 'PP', 'EN']]
+        # Load and display the uploaded file
+        data = pd.read_csv(uploaded_file)
+
+        # Automatically select top 4 features
+        features = data[['PP', 'RMS', 'KU', 'IF']]
         scaled_features = scaler.transform(features)
+
+        # Make predictions
         predictions = rf_model.predict(scaled_features)
         probabilities = rf_model.predict_proba(scaled_features) * 100
+
+        # Append predictions and probabilities to the original data
         data['Prediction'] = label_encoder.inverse_transform(predictions)
         data['Probability (%)'] = probabilities.max(axis=1)
+
+        # Display results
         st.write("### Prediction Results")
         st.dataframe(data)
         st.download_button("Download Results", data.to_csv(index=False), file_name="results.csv", mime="text/csv")
@@ -165,6 +186,7 @@ if uploaded_file is not None:
         visualize_feature_importance()
     except Exception as e:
         st.error(f"Error processing file: {e}")
+
 
 # Footer Section
 st.markdown("""<hr style='border: 1px solid gray;'>""", unsafe_allow_html=True)
