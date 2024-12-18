@@ -57,7 +57,7 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 st.sidebar.markdown("### Flowchart of the ML Analysis")
-st.sidebar.markdown("[View Flowchart](https://drive.google.com/file/d/1QZDHXltP4DmZjrKYdVFairiUQp6D2Spb/view?usp=sharing)", unsafe_allow_html=True)
+st.sidebar.markdown("[View Flowchart](https://drive.google.com/file/d/10Xoh04OiDur1YZddYYSHTdFhz8KxIwL_/view?usp=sharing)", unsafe_allow_html=True)
 
 # Placeholder for Setup and Input Capturing Details
 st.sidebar.markdown("### Details about the Work")
