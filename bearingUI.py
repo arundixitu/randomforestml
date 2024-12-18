@@ -79,7 +79,7 @@ st.sidebar.markdown("[Download as CSV](https://drive.google.com/file/d/1QYPWs_7b
 st.sidebar.markdown("### Unseen Dataset Details")
 st.sidebar.markdown("The unseen dataset is used to validate the model's performance on new data, ensuring its reliability and robustness.")
 st.sidebar.markdown("[Download Unseen Dataset (CSV)](https://drive.google.com/file/d/1QRbt_zOj6ZpVJgofNb2hEtUJ-ufphvud/view?usp=drive_link)", unsafe_allow_html=True)
-st.sidebar.markdown("**Accuracy on Unseen Dataset:** 100%")
+st.sidebar.markdown("**Accuracy on Unseen Dataset:** 92.5%")
 
 
 st.sidebar.markdown("""<h4>Output Classes (Bearing Conditions):</h4>""", unsafe_allow_html=True)
@@ -91,7 +91,8 @@ st.sidebar.markdown("""
 """)
 
 st.sidebar.markdown("**Machine Learning Model Used:** Random Forest Classifier")
-st.sidebar.markdown("**Accuracy Achieved:** 87%")
+st.sidebar.markdown("**Accuracy Achieved (Before Tuning):** 86%")
+st.sidebar.markdown("**Accuracy Achieved (After Tuning:** 89%")
 
 # Add Links to the Model Trained in Google Colab
 st.sidebar.markdown("### Google Colab ML Model Link")
