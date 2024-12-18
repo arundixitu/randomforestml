@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 import matplotlib.pyplot as plt
 
 # Load required files
-rf_model = joblib.load("random_forest_model.pkl")
+rf_model = joblib.load("new_best_random_forest_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 scaler = joblib.load("scaler.pkl")
 
@@ -17,7 +17,7 @@ def visualize_class_distribution(data):
 
 def visualize_feature_importance():
     st.subheader("Feature Importance")
-    feature_importance = rf_model.feature_importances_
+    feature_importance = best_random_forest.feature_importances_
     feature_names = ['RMS', 'KU', 'CF', 'IF', 'PP', 'EN']
     plt.figure(figsize=(8, 6))
     plt.barh(feature_names, feature_importance, color='teal')
