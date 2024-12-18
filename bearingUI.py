@@ -61,7 +61,7 @@ st.sidebar.markdown("[View Flowchart](https://drive.google.com/file/d/1QZDHXltP4
 
 # Placeholder for Setup and Input Capturing Details
 st.sidebar.markdown("### Details about the Work")
-st.sidebar.markdown("[About work](https://drive.google.com/file/d/1cwPV0XEC7e8A29T2wPYzuwTznPAWIGzc/view?usp=sharing)")  
+st.sidebar.markdown("[About work](https://drive.google.com/file/d/1cwPV0XEC7e8A29T2wPYzuwTznPAWIGzc/view?usp=sharing)", unsafe_allow_html=True)  
 
 st.sidebar.markdown("""<h4>Dataset Features (Input):</h4>""", unsafe_allow_html=True)
 st.sidebar.markdown("""
