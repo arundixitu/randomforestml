@@ -79,6 +79,7 @@ st.sidebar.markdown("[Download as CSV](https://drive.google.com/file/d/1QYPWs_7b
 st.sidebar.markdown("### Unseen Dataset Details")
 st.sidebar.markdown("The unseen dataset is used to validate the model's performance on new data, ensuring its reliability and robustness.")
 st.sidebar.markdown("[Download Unseen Dataset (CSV)](https://drive.google.com/file/d/1QRbt_zOj6ZpVJgofNb2hEtUJ-ufphvud/view?usp=drive_link)", unsafe_allow_html=True)
+st.sidebar.markdown("[Confusion Matrix for Unseen Data](https://drive.google.com/file/d/1KpCHfs6R-jBYHKElXsacTfkr0MbNzWeg/view?usp=drive_link)", unsafe_allow_html=True)
 st.sidebar.markdown("**Accuracy on Unseen Dataset:** 92.5%")
 
 
